@@ -1,0 +1,411 @@
+/* ========== RESET & BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a2456 50%, #2d3e73 100%);
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ========== HEADER ========== */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 40px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+/* Botão hamburguer: ícone escuro sobre fundo branco */
+.navbar-toggler {
+    border-color: #0a0e27;
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%230a0e27' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.menu-link {
+    font-size: 15px;
+    color: #0a0e27 !important;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    padding: 8px 4px;
+}
+.menu-link:hover {
+    color: #d4af37 !important;
+}
+
+/* ========== BANNER ========== */
+.banner {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 120px 40px 60px;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.banner-content h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 81, 255, 0.849);
+}
+
+.banner-content h2 {
+    font-size: clamp(18px, 3vw, 24px);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.banner-content p {
+    font-size: clamp(15px, 2vw, 20px);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+.botao {
+    display: inline-block;
+    padding: 14px 36px;
+    background-color: #d4af37;
+    color: #0a0e27 !important;
+    font-size: 15px !important;
+    font-weight: bold;
+    text-decoration: none !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.botao:hover {
+    background-color: white;
+    color: #0a0e27 !important;
+    transform: scale(1.04);
+    text-decoration: none !important;
+}
+
+/* ========== IMAGENS DO BANNER ========== */
+.thumb {
+    /* clamp: mínimo 140px, ideal 28vw, máximo 340px */
+    width: clamp(140px, 28vw, 340px);
+    height: auto;
+    animation: fadeUp 1s ease forwards;
+    transition: transform 0.3s ease;
+}
+.thumb:hover { transform: scale(1.05); }
+
+.sauvage {
+    width: clamp(100px, 20vw, 240px);
+    height: auto;
+    animation: fadeUp 1s ease 0.2s forwards;
+    opacity: 0;
+    transition: transform 0.3s ease;
+}
+.sauvage:hover { transform: scale(1.05); }
+
+.editimg {
+    width: clamp(100px, 20vw, 240px);
+    height: auto;
+    animation: fadeUp 1s ease 0.4s forwards;
+    opacity: 0;
+    transition: transform 0.3s ease;
+}
+.editimg:hover { transform: scale(1.05); }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== MAIS VENDIDOS ========== */
+.secao-vendidos {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 8px rgba(38, 0, 255, 0.456);
+}
+
+.lista-vendidos {
+    gap: 40px;
+}
+
+.lista-vendidos a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+/* Largura máxima relativa — nunca estoura o container */
+.maisvendido {
+    width: 100%;
+    max-width: 790px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.maisvendido:hover { transform: scale(1.03); }
+
+/* ========== SEÇÃO SOBRE ========== */
+.sobre {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.sobre-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sobre h2 {
+    font-size: clamp(28px, 5vw, 42px);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 8px rgba(0, 81, 255, 0.849);
+    margin-bottom: 50px;
+}
+
+/* Card — sem max-width fixo: o col-md-4 do Bootstrap já controla */
+.sobre-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 40px 30px;
+    color: white;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+.sobre-item:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 81, 255, 0.3);
+}
+.sobre-item h3 {
+    font-size: 22px;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-shadow: none;
+}
+.sobre-item p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+/* ========== CONTATO ========== */
+#contato {
+    padding: 80px 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+#contato h2 {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 40px;
+}
+#contato form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+#contato label {
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+#contato input,
+#contato textarea {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+#contato input:focus,
+#contato textarea:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    outline: none;
+}
+#contato textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+#contato button {
+    background: linear-gradient(to right, #d4af37, #f4d03f);
+    color: #333;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+#contato button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.5);
+}
+
+/* ========== VÍDEO ========== */
+.video-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+.video-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 42px);
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 20px rgba(0, 81, 255, 0.5);
+}
+video {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ========== TABELA ========== */
+.tabela-perfumes {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #009bf480 0%, #ffffff00 100%);
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgb(0, 255, 242);
+    max-width: 900px;
+    margin: 0 auto;
+}
+.tabela-perfumes h2 {
+    text-align: center;
+    color: #ffffffeb;
+    margin-bottom: 12px;
+    font-size: clamp(1.4em, 4vw, 2.2em);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+.subtitulo {
+    text-align: center;
+    color: #f1eaea9d;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    font-style: italic;
+}
+.tabela-perfumes table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+.tabela-perfumes th {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: #f4f4f4;
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+.tabela-perfumes th:nth-child(1) { text-align: center; width: 70px; }
+.tabela-perfumes th:nth-child(3) { text-align: center; }
+.tabela-perfumes th:nth-child(4) { text-align: right; }
+
+.tabela-perfumes td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 0.95em;
+    vertical-align: middle;
+}
+.tabela-perfumes td:nth-child(1) { text-align: center; font-weight: bold; color: #e74c3c; font-size: 1.05em; }
+.tabela-perfumes td:nth-child(2) { text-align: left; font-weight: 500; color: #2c3e50; }
+.tabela-perfumes td:nth-child(3) { text-align: center; font-weight: bold; color: #2040c1; }
+.tabela-perfumes td:nth-child(4) { text-align: right; font-weight: bold; color: #000; }
+
+.tabela-perfumes tr:hover {
+    background: linear-gradient(135deg, #f8f9fa 0%, #00abcd 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.tabela-perfumes tbody tr:last-child td { border-bottom: none; }
+
+/* ========== FOOTER ========== */
+footer {
+    padding: 60px 20px 30px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+footer > p:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 3vw, 22px);
+    color: #ffffff;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 0;
+}
+footer ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border: 1px solid rgba(230, 227, 18, 0.79);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+footer ul li a:hover {
+    background: #d4af37;
+    color: #0a0e27;
+    border-color: #d4af37;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+}
+footer p { color: #f3f1ed85; }
